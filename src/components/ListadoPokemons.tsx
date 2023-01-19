@@ -13,6 +13,7 @@ import {extractPokemonId} from "../services/pokemon.services";
  *     <ListadoPokemons />
  * </pre>
  * @param {string} name nombre del pokemon a buscar
+ * @param seleccionarPokemon una funcion que se ejecuta al hacer click en el pokemon y guarda en un estado el pokemon seleccionado
  * @author Digital House
  */
 const ListadoPokemons = () => {
