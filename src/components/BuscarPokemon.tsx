@@ -1,20 +1,27 @@
 import React from "react";
+import ListadoPokemons from "./ListadoPokemons";
+import VistaPokemon from "./VistaPokemon";
 
 const BuscarPokemon = () => {
-
-    // No olvidemos agregar el hook de redux para obtener el acceso al objeto dispatch
+    //Aqui deberemos almacenar en estados las entradas del usuario
 
     const onBuscarClick = () => {
-        // Aqui debemos despachar una acción utilizando el dispatch proveniente del hook de redux
-        // Lo ideal seria crear una action con su tipo, en un archivo actions.
+       // Aqui debemos guardar la entrada del usuario
     }
 
     return (
-        <div id="buscarPokemon">
-            <label>Buscar pokemon</label>
-            <input type="text" placeholder={"Pikachu, Charmander, Ditto, etc"}/>
-            <button onClick={() => onBuscarClick()}>Buscar</button>
-        </div>
+        <>
+            <div id="buscarPokemon">
+                <label>Buscar pokemon</label>
+                <input type="text" placeholder={"Pikachu, Charmander, Ditto, etc"}/>
+                <button onClick={() => onBuscarClick()}>Buscar</button>
+            </div>
+            <div style={{display: 'flex', flexDirection:'row'}}>
+                {/* ListadoPokemons debe recibir por props el name del pokemon a buscar */}
+                <ListadoPokemons /> 
+                <VistaPokemon />
+            </div>
+        </>
     );
 }
 

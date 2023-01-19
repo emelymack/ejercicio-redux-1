@@ -4,15 +4,15 @@ import {buscarPokemons} from "../queries/pokemon.queries";
 import {Pokemon} from "../types/pokemon.types";
 import {extractPokemonId} from "../services/pokemon.services";
 
+
 /**
  * Visualiza una lista de pokemons
  *
  * Ej:
  * <pre>
  *     <ListadoPokemons />
- *
  * </pre>
- *
+ * @param {string} name nombre del pokemon a buscar
  * @author Digital House
  */
 const ListadoPokemons = () => {
@@ -20,7 +20,8 @@ const ListadoPokemons = () => {
     const [pokemons, setPokemons] = useState<Pokemon[] | null>(null);
 
     useEffect(() => {
-        buscarPokemons("p").then(data => {
+        //Deberan realizar la busqueda con la variable correspondiente
+        buscarPokemons("").then(data => {
             setLoading(false);
             setPokemons(data);
         });

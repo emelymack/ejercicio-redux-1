@@ -15,7 +15,7 @@
     "de",
     "Trabajo"
   ],
-  "author": "Tomas de Priede",
+  "author": "Alejo Rojas",
   "license": "MIT",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
