@@ -1,46 +1,21 @@
-# Getting Started with Create React App
+# Ejercicio introducción Redux
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Objetivo
+Debemos lograr que la búsqueda de Pokemones muestre sus resultados en el Pokédex.
 
-## Available Scripts
+## Consigna
+Ya hemos utilizado previamente React Query en nuestro centro Pokémon y hemos integrado TypeScript en nuestro inventario Pokémon. Ahora, utilizaremos esos conocimientos para entender cómo funciona el Pokédex que nos dejó el profesor Oak, e implementaremos un buscador, aun con prop drilling.
+A raíz de esto, te proponemos resolver los siguientes puntos:
+- En primer lugar, deberás agregar la lógica para capturar el input del usuario dentro del componente BuscarPokemon.tsx.
+- En segundo lugar, con la lógica inicial del buscador ya hecha, deberás compartir el nombre buscado con el componente ListadoPokemons.tsx
+- Finalmente, en ListadoPokemons.tsx,  deberás hacer el fetch (puedes utilizar React Query para esta petición)  a la API  para traer los pokemones que coincidan con el nombre buscado, mapearlos y renderizarlos.
 
-In the project directory, you can run:
+- En relación con la búsqueda, la API de Pokémones no permite búsquedas por nombres incompletos o que no sean exactos, por eso hemos realizado unos ajustes en la API. ¿Te animás a descubrir cómo funciona? 
 
-### `npm start`
+### Bonus track
+- ¿Se animan a incorporar React Query? Ayudemos a incrementar la performance del Pokédex del profesor Oak, mejorando sus queries por medio del Hook useQuery y su caché.
+- ¿Quieres ir por más? Si te sientes cómodo con el flujo de Redux y su implementación podes probar integrarlo en esta mesa de trabajo.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+----
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/emelymack)
