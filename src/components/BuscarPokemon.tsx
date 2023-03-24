@@ -1,24 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ListadoPokemons from "./ListadoPokemons";
 import VistaPokemon from "./VistaPokemon";
 
 const BuscarPokemon = () => {
-    //Aqui deberemos almacenar en estados las entradas del usuario
+    const [ inputValue, setInputValue ] = useState<string>('')
+    const [ inputSearch, setInputSearch ] = useState<string>('')
+
+    const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>{      
+      setInputValue(e.target.value);
+    }
 
     const onBuscarClick = () => {
-       // Aqui debemos guardar la entrada del usuario
+      console.log(inputValue);
+      setInputSearch(inputValue) 
     }
 
     return (
         <>
             <div id="buscarPokemon">
                 <label>Buscar pokemon</label>
-                <input type="text" placeholder={"Pikachu, Charmander, Ditto, etc"}/>
-                <button onClick={() => onBuscarClick()}>Buscar</button>
+                <input type="text" onChange={onChange} placeholder={"Pikachu, Charmander, Ditto, etc"}/>
+                <button onClick={onBuscarClick}>Buscar</button>
             </div>
             <div style={{display: 'flex', flexDirection:'row'}}>
-                {/* ListadoPokemons debe recibir por props el name del pokemon a buscar */}
-                <ListadoPokemons /> 
+                <ListadoPokemons name={inputSearch} seleccionarPokemon={() =>{}} /> 
                 <VistaPokemon />
             </div>
         </>

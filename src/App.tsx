@@ -1,9 +1,11 @@
 import "./styles.css";
 import BuscarPokemon from "./components/BuscarPokemon";
+import {QueryClient, QueryClientProvider} from 'react-query';
 
 export default function App() {
 
     return (
+      <QueryClientProvider client={new QueryClient()}>
         <div className="App">
             <h1>Pokédex</h1>
             <div id="bandejaDeEntrada">
@@ -12,5 +14,6 @@ export default function App() {
                 </div>
             </div>
         </div>
+      </QueryClientProvider>
     );
 }

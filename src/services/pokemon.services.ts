@@ -5,5 +5,5 @@
  * @return {string} el id de la pkoemon
  */
 export const extractPokemonId = (url: string): string => {
-    return url.split("pokemon")[1].replace("/","").replace("/","");
+    return url.split("pokemon")[1]?.replace("/","").replace("/","");
 }

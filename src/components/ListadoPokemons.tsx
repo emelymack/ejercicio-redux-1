@@ -3,7 +3,7 @@ import ListadoPokemonsItem from "../components/ListadoPokemonsItem";
 import {buscarPokemons} from "../queries/pokemon.queries";
 import {Pokemon} from "../types/pokemon.types";
 import {extractPokemonId} from "../services/pokemon.services";
-
+import {useQuery, useQueryClient} from 'react-query'
 
 /**
  * Visualiza una lista de pokemons
@@ -16,25 +16,29 @@ import {extractPokemonId} from "../services/pokemon.services";
  * @param seleccionarPokemon una funcion que se ejecuta al hacer click en el pokemon y guarda en un estado el pokemon seleccionado
  * @author Digital House
  */
-const ListadoPokemons = () => {
-    const [isLoading, setLoading] = useState(true);
-    const [pokemons, setPokemons] = useState<Pokemon[] | null>(null);
+interface Props {
+  name: string;
+  seleccionarPokemon: (pokemon: Pokemon) => void;
+}
+const ListadoPokemons = ({name, seleccionarPokemon}: Props) => {
+  const [isLoading, setLoading] = useState(true);
+  const [pokemons, setPokemons] = useState<Pokemon[] | null>(null);
 
-    useEffect(() => {
-        //Deberan realizar la busqueda con la variable correspondiente
-        buscarPokemons("").then(data => {
-            setLoading(false);
-            setPokemons(data);
-        });
-    },[])
+  useEffect(() => {
+      buscarPokemons(name).then(data => {
+          setLoading(false);
+          setPokemons(data);
+      });
+  },[name])
+
 
     if (isLoading) return <div>Cargando pokemons...</div>
 
-    return (
+    return  (
         <div id="listadoCategorias">
             {pokemons && pokemons.map((pokemon: Pokemon) => (
                 <ListadoPokemonsItem pokemon={pokemon}
-                                     seleccionarPokemon={() => {}}
+                                     seleccionarPokemon={seleccionarPokemon}
                                      key={extractPokemonId(pokemon.url)}/>
             ))}
         </div>
