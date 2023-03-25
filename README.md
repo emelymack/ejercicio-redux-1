@@ -13,7 +13,6 @@ A raíz de esto, te proponemos resolver los siguientes puntos:
 - En relación con la búsqueda, la API de Pokémones no permite búsquedas por nombres incompletos o que no sean exactos, por eso hemos realizado unos ajustes en la API. ¿Te animás a descubrir cómo funciona? 
 
 ### Bonus track
-- ¿Se animan a incorporar React Query? Ayudemos a incrementar la performance del Pokédex del profesor Oak, mejorando sus queries por medio del Hook useQuery y su caché.
 - ¿Quieres ir por más? Si te sientes cómodo con el flujo de Redux y su implementación podes probar integrarlo en esta mesa de trabajo.
 
 ----

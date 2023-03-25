@@ -24,6 +24,7 @@ interface ListadoPokemonsItemProps {
  * @param pokemon el pokemon a mostrar
  * @param seleccionarPokemon una funcion que se ejecuta al hacer click en el pokemon y guarda en un estado el pokemon seleccionado
  */
+
 const ListadoPokemonsItem = ({ pokemon, seleccionarPokemon }: ListadoPokemonsItemProps) =>
     <div onClick={() => seleccionarPokemon(pokemon)}>
         <strong>{pokemon.name}</strong>
