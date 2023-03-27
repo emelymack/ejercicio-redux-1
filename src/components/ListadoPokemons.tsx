@@ -4,6 +4,9 @@ import {buscarPokemons} from "../queries/pokemon.queries";
 import {Pokemon} from "../types/pokemon.types";
 import {extractPokemonId} from "../services/pokemon.services";
 import {useQuery, useQueryClient} from 'react-query'
+import { useAppDispatch, useAppSelector } from "../hooks/hook";
+import { getPokemonsReducer } from "../redux/pokemonsSlice";
+import { setPokemons } from "../redux/pokemonsSlice";
 
 /**
  * Visualiza una lista de pokemons
@@ -22,12 +25,13 @@ interface Props {
 }
 const ListadoPokemons = ({name, seleccionarPokemon}: Props) => {
   const [isLoading, setLoading] = useState(true);
-  const [pokemons, setPokemons] = useState<Pokemon[] | null>(null);
-
+  const pokemons = useAppSelector(state => state.pokemons.pokemons)
+  const dispatch = useAppDispatch()
+  
   useEffect(() => {
-      buscarPokemons(name).then(data => {
+      buscarPokemons(name).then((data) => {
           setLoading(false);
-          setPokemons(data);
+          dispatch(setPokemons(data));
       });
   },[name])
 

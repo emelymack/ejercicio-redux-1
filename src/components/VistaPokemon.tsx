@@ -1,18 +1,8 @@
-import React, { useEffect,useState } from "react";
+import { useEffect } from "react";
 import PropTypes from "prop-types";
-import {PokemonWithProps} from "../types/pokemon.types";
-import {Sprite} from "../types/sprite.types";
-import { getPokemon } from "../queries/pokemon.queries";
-
-const pokemonMock: PokemonWithProps = {
-  id: 1,
-  name: 'Bulbasaur',
-  url: 'https://pokeapi.co/api/v2/pokemon/1/',
-  sprites: {
-      "default": 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
-      other: {home: {front_default: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/1.png'}}
-  } as Sprite
-}
+import { AppDispatch, RootState } from "../redux/store";
+import { useAppDispatch, useAppSelector } from "../hooks/hook";
+import { setPokemonViewReducer } from "../redux/pokemonViewSlice";
 
 /**
  * Visualiza un pokemon seleccionado
@@ -24,15 +14,12 @@ interface Props{
   pokemonSeleccionado: string 
 }
 const VistaPokemon = ({pokemonSeleccionado}: Props) => {
-    const [ pokemon, setPokemon ] = useState<PokemonWithProps>(pokemonMock)
-  
-    const getPokemonView = async () =>{
-      const result =  await getPokemon(pokemonSeleccionado)
-      setPokemon(result)
-    }
+    const dispatch: AppDispatch = useAppDispatch()
+    const pokemon = useAppSelector((state: RootState) => state.pokemonView.pokemon)
+
 
     useEffect(() =>{
-      getPokemonView()
+      dispatch(setPokemonViewReducer(pokemonSeleccionado))
     }, [pokemonSeleccionado])
 
     return pokemon ? (
