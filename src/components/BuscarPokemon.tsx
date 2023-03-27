@@ -3,25 +3,28 @@ import ListadoPokemons from "./ListadoPokemons";
 import VistaPokemon from "./VistaPokemon";
 import {Pokemon, PokemonWithProps} from "../types/pokemon.types";
 import { getPokemon } from "../queries/pokemon.queries";
+import { AppDispatch, RootState } from "../redux/store";
+import { useDispatch } from "react-redux";
+import inputSlice from "../redux/inputSlice";
+import { useAppDispatch, useAppSelector } from "../hooks/hook";
 
 const BuscarPokemon = () => {
     const [ inputValue, setInputValue ] = useState<string>('')
-    const [ inputSearch, setInputSearch ] = useState<string>('')
     const [ pokemonSeleccionado, setPokemonSeleccionado ] = useState<string>('')
+    const dispatch: AppDispatch = useAppDispatch()
+    const inputState = useAppSelector((state: RootState) => state.input.input)
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) =>{      
       setInputValue(e.target.value);
     }
 
     const onBuscarClick = () => {
-      console.log(inputValue);
-      setInputSearch(inputValue) 
+      dispatch(inputSlice.actions.setInput(inputValue))
     }
-
+    
     const seleccionarPokemon = (pokemon: Pokemon) => {
       setPokemonSeleccionado(pokemon.name)
-      console.log(pokemonSeleccionado);
-      
+      // console.log(pokemon);
     }
 
     return (
@@ -32,7 +35,7 @@ const BuscarPokemon = () => {
                 <button onClick={onBuscarClick}>Buscar</button>
             </div>
             <div style={{display: 'flex', flexDirection:'row'}}>
-                <ListadoPokemons name={inputSearch} seleccionarPokemon={seleccionarPokemon} /> 
+                <ListadoPokemons name={inputState} seleccionarPokemon={seleccionarPokemon} /> 
                 <VistaPokemon pokemonSeleccionado={pokemonSeleccionado} />
             </div>
         </>
