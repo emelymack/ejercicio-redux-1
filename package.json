@@ -15,7 +15,7 @@
     "de",
     "Trabajo"
   ],
-  "author": "Alejo Rojas",
+  "author": "Emely Mack",
   "license": "MIT",
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.3",
