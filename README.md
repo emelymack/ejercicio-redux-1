@@ -1,5 +1,8 @@
 # Ejercicio introducción Redux
 
+# Proyecto final: 
+https://main--centropokemon-redux-typescript.netlify.app/
+
 ## Objetivo
 Debemos lograr que la búsqueda de Pokemones muestre sus resultados en el Pokédex.
 
